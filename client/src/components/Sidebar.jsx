@@ -42,6 +42,8 @@ const Sidebar = ({ children }) => {
   const [idToCall, setIdToCall] = useState('');
   const classes = useStyles();
 
+  console.log(me);
+
   return (
     <Container className={classes.container}>
       <Paper elevation={10} className={classes.paper}>
@@ -51,7 +53,15 @@ const Sidebar = ({ children }) => {
               <Typography gutterBottom variant="h6">Account Info</Typography>
               <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
               <CopyToClipboard text={me} className={classes.margin}>
-                <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  startIcon={<Assignment fontSize="large" />}
+                  onClick={() => {
+                    console.log('Copy button clicked:', me);
+                  }}
+                >
                   Copy Your ID
                 </Button>
               </CopyToClipboard>
